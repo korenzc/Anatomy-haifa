@@ -195,7 +195,7 @@ export function Screen({ title, subtitle, trailing, brand, children }: { title: 
       <div className="screen">
         <h1 className="large-title">
           {title}
-          {brand && <img className="brand-owl" src="/boar.png" alt="" width={33} height={44} />}
+          {brand && <img className="brand-owl" src="/skeleton.png" alt="" width={33} height={44} />}
         </h1>
         <div ref={sentinel} style={{ height: 1, marginTop: -1 }} />
         {subtitle && <p className="subtitle">{subtitle}</p>}
