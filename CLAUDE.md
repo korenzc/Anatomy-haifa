@@ -1,4 +1,4 @@
-# אנטומיה חיפה — rules for every Claude working here
+# Somatomi — rules for every Claude working here
 
 The app belongs to Koren (GitHub: `korenzc`). Friends he adds as collaborators on GitHub may work on it too, with the same rights (since 24.11.2026). Assume whoever you work for is not a programmer: explain everything in plain Hebrew, no jargon, and do the git work for them.
 

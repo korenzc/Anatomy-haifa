@@ -1,6 +1,6 @@
 ---
 name: add-lecture
-description: Turn a new slide deck (PDF/PPTX/images) into a lecture in the אנטומיה חיפה app — deep understanding of the slides by cheap helper agents, then the main model checks, simplifies and fits it into the app. Use whenever new material arrives ("הנה מצגת חדשה", "תעלה את ההרצאה", a file from WhatsApp, "יש חומר חדש"), for a new lecture or an update to an existing one.
+description: Turn a new slide deck (PDF/PPTX/images) into a lecture in the Somatomi app — deep understanding of the slides by cheap helper agents, then the main model checks, simplifies and fits it into the app. Use whenever new material arrives ("הנה מצגת חדשה", "תעלה את ההרצאה", a file from WhatsApp, "יש חומר חדש"), for a new lecture or an update to an existing one.
 ---
 
 # Adding a lecture from a slide deck

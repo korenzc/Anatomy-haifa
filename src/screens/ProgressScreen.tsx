@@ -57,7 +57,7 @@ export function ProgressScreen({ toast }: { toast: (m: string) => void }) {
   const doExport = async () => {
     const data = exportState();
     const blob = new Blob([data], { type: 'application/json' });
-    const file = new File([blob], `anatomy-haifa-backup-${todayKey()}.json`, { type: 'application/json' });
+    const file = new File([blob], `somatomi-backup-${todayKey()}.json`, { type: 'application/json' });
     try {
       if (navigator.canShare?.({ files: [file] })) {
         await navigator.share({ files: [file], title: 'גיבוי התקדמות' });

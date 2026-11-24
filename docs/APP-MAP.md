@@ -1,6 +1,6 @@
-# App map — how אנטומיה חיפה is built
+# App map — how Somatomi is built
 
-Practice app for **theoretical anatomy (אנטומיה עיונית)**, owned by Koren (`korenzc/anatomy-haifa`). Started 24.11.2026 as a copy of Ethan's לדבר רפואית (`ethankol/ledaber-refuit`) with its content, leaderboard, class chat, account backup and address move removed. Mascot: a cute wild boar in a white coat with a stethoscope (since 24.11.2026, replacing the owl): `public/boar.png` inside the app (path header, lecture done, perfect flashcard round), drawn by hand as `public/boar.svg` (edit the SVG, then re-render the PNGs); app icons `icon-192/512.png`, `icon-maskable-512.png`, `apple-touch-icon.png`, `favicon.png`.
+Practice app for **theoretical anatomy (אנטומיה עיונית)**, owned by Koren (`korenzc/anatomy-haifa`). Started 24.11.2026 as a copy of Ethan's לדבר רפואית (`ethankol/ledaber-refuit`) with its content, leaderboard, class chat, account backup and address move removed. Mascot: a cute wild boar in a white coat with a stethoscope (since 24.11.2026, replacing the owl): `public/boar.png` inside the app (path header, lecture done, perfect flashcard round), drawn by hand as `public/boar.svg` (edit the SVG, then re-render the PNGs); app icons `icon-192/512.png`, `icon-maskable-512.png`, `apple-touch-icon.png`, `favicon.png`. The app is called **Somatomi** (renamed from אנטומיה חיפה on 24.11.2026); the repo and the web address keep the old name `anatomy-haifa`.
 
 Read this first in every new chat, before opening code. **Keep it true:** any change that adds/moves/renames a file, changes how a feature works, or adds a rule → update this file in the same change.
 
