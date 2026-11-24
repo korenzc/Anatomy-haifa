@@ -17,6 +17,24 @@ export interface Feature {
 
 export const features: Feature[] = [
   {
+    id: 'intro',
+    date: '2026-11-24',
+    icon: '🦴',
+    hue: 250,
+    title: 'מקצוע חדש: מבואות',
+    note: 'שלד ומינוחים, רקמת חיבור, רקמת השריר ומערכת העצבים. מתחילים מכאן.',
+    tab: 'path',
+  },
+  {
+    id: 'head-face-neck',
+    date: '2026-11-24',
+    icon: '🧠',
+    hue: 300,
+    title: 'מקצוע חדש: ראש, פנים וצוואר',
+    note: 'ההרצאה הראשונה כבר כאן: העין וארובת העין.',
+    tab: 'path',
+  },
+  {
     id: 'lecture-tiles',
     date: '2026-11-24',
     icon: '🧩',

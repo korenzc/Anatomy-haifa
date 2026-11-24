@@ -1,4 +1,5 @@
 import type { Course } from '../../types';
+import eyeOrbit from './01-eye-orbit';
 
 const course: Course = {
   id: 'head-face-neck',
@@ -6,7 +7,9 @@ const course: Course = {
   subtitle: 'שרירים, עצבים וכלי דם',
   icon: '🧠',
   hue: 300,
-  lectures: [],
+  lectures: [
+    eyeOrbit,
+  ],
 };
 
 export default course;

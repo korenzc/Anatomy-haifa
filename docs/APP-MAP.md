@@ -4,7 +4,7 @@ Practice app for **theoretical anatomy (אנטומיה עיונית)**, owned by
 
 Read this first in every new chat, before opening code. **Keep it true:** any change that adds/moves/renames a file, changes how a feature works, or adds a rule → update this file in the same change.
 
-Last updated: 24.11.2026 (גפה עליונה: 11 lectures from 12 decks, 247 terms, ~600 facts, slide figures; a question's figure shows after answering; before that the copy itself).
+Last updated: 24.11.2026 (מבואות 4 lectures + eye & orbit; path tab as lecture tiles; before that גפה עליונה: 11 lectures from 12 decks, 247 terms, ~600 facts, slide figures; a question's figure shows after answering; before that the copy itself).
 
 ## In one paragraph
 A phone-first PWA (React 19 + TypeScript + Vite). Content is TypeScript files compiled into the app. Every student's progress lives in their browser (localStorage key `shoresh:v1`, kept from the original app; harmless since every address has its own storage), with export/import to a file in the Progress tab. No server, no accounts. Spaced repetition is FSRS (`ts-fsrs`). Visits are counted by Vercel Web Analytics if turned on in the Vercel project (script tag in `index.html`). Every commit on `main` deploys to the live site on Vercel.
@@ -23,6 +23,8 @@ Overlays (full screen, from App.tsx): `components/SessionView.tsx` (a lesson/tes
 - `courses/index.ts` — the subjects in display order: `intro` (מבואות), `upper-limb` (גפה עליונה), `spine-back-skull` (עמוד שדרה, גב וגולגולת), `head-face-neck` (ראש, פנים וצוואר). A subject with `lectures: []` is never shown. `activeCourse` (path.ts) = the saved choice if it has slides, else the first subject with slides.
 - `courses/<course>/index.ts` — the `Course`; `courses/<course>/NN-*.ts` — one `Lecture` = one slide deck.
 - `lexicon.ts` — terms (only what some lecture teaches): anatomy structure names without `parts`, `he`/`meaning` = what the structure is, from the slides. A term belongs to the first lecture that lists it; later lectures just list it in `words`. `meaning` must not contain the word itself (it is the question).
+- `courses/intro/` (מבואות, first = everyone's default) — 4 lectures: skeleton, terminology & joints; connective tissue (bone, cartilage, blood, lymph); muscle tissue; nervous system. Two more intro decks are still to come (too heavy to upload).
+- `courses/head-face-neck/` — so far 1 lecture: eye and orbit (a second-year deck Koren sent with the intro ones).
 - `courses/upper-limb/` — 11 lectures in teaching order: bones (shoulder & arm, forearm & hand), joints (shoulder & elbow, forearm & hand), muscles (shoulder & arm, forearm, hand), brachial plexus & axilla, nerves of arm & forearm (cubital fossa), wrist & hand innervation, vessels (two decks: 'Arteries' + 'Artery summary', so facts carry `deck`). Figures in `public/slides/<lecture-id>/<slide>.webp` (`<deck#>-<slide>` for the two-deck lecture).
 - `tips.ts` — the tips corner (`{ id, date, author, title, body }`), empty for now.
 - `features.ts` — big app features for **מה חדש**; every big new feature gets an entry.
