@@ -17,6 +17,15 @@ export interface Feature {
 
 export const features: Feature[] = [
   {
+    id: 'lecture-tiles',
+    date: '2026-11-24',
+    icon: '🧩',
+    hue: 250,
+    title: 'מסלול מסודר בריבועים',
+    note: 'כל הרצאה היא ריבוע. נכנסים אליה ונפתח המסלול שלה, בלי לגלול בלי סוף.',
+    tab: 'path',
+  },
+  {
     id: 'upper-limb',
     date: '2026-11-24',
     icon: '💪',
