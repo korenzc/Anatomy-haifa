@@ -1,6 +1,7 @@
 import type { Course } from '../../types';
 import eyeOrbit from './01-eye-orbit';
 import faceInnervation from './02-face-innervation';
+import facialNerve from './07-facial-nerve';
 import infratemporalFossa from './03-infratemporal-fossa';
 import pterygopalatineFossa from './04-pterygopalatine-fossa';
 import oralCavity from './05-oral-cavity';
@@ -15,6 +16,7 @@ const course: Course = {
   lectures: [
     eyeOrbit,
     faceInnervation,
+    facialNerve,
     infratemporalFossa,
     pterygopalatineFossa,
     oralCavity,
