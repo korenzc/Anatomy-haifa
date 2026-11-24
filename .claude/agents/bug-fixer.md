@@ -1,6 +1,6 @@
 ---
 name: bug-fixer
-description: Cheap bug hunter for the Somatomi app. Goes through the app (code, tests, and the running app in a browser), finds real bugs, fixes them with small safe changes, and reports what it did. Use when asked to "find and fix bugs", "go over the app", or after a batch of changes to catch breakage. Never publishes.
+description: Cheap bug hunter for the Somatomy app. Goes through the app (code, tests, and the running app in a browser), finds real bugs, fixes them with small safe changes, and reports what it did. Use when asked to "find and fix bugs", "go over the app", or after a batch of changes to catch breakage. Never publishes.
 model: sonnet
 tools: Read, Grep, Glob, Bash, Edit, Write, mcp__Claude_Browser__preview_start, mcp__Claude_Browser__navigate, mcp__Claude_Browser__computer, mcp__Claude_Browser__read_page, mcp__Claude_Browser__find, mcp__Claude_Browser__get_page_text, mcp__Claude_Browser__read_console_messages, mcp__Claude_Browser__resize_window, mcp__Claude_Browser__javascript_tool
 ---

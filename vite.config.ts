@@ -9,8 +9,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.png', 'apple-touch-icon.png', 'boar.png'],
       manifest: {
-        name: 'Somatomi',
-        short_name: 'Somatomi',
+        name: 'Somatomy',
+        short_name: 'Somatomy',
         description: 'מתרגלים אנטומיה עיונית לפני כל בוחן, עם חזרה מרווחת.',
         lang: 'he',
         dir: 'rtl',
