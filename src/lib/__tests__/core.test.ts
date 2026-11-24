@@ -37,7 +37,8 @@ describe('content', () => {
     }
   });
   it('teaches only what the lectures list: every lexicon word has a home lecture', () => {
-    expect(terms.length).toBe(lexiconTerms.length);
+    // a word can be in both the test-fixture lexicon and the real one (e.g. vertebra); it is one term
+    expect(terms.length).toBe(new Set(lexiconTerms.map((t) => t.word)).size);
     expect(new Set(terms.map((t) => t.id)).size).toBe(terms.length);
     for (const t of terms) expect(lectures.find((l) => l.id === t.lectureId)?.words, t.word).toContain(t.word);
   });
