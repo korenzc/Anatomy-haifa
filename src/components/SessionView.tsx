@@ -347,7 +347,7 @@ function Results({ session, summary, onDone, onRetry }: { session: Session; summ
   // passing a lecture's final test = the whole lecture is done
   const node = session.node;
   const lectureDone = !failed && test && node?.kind === 'checkpoint' && node.last ? node.unit : null;
-  const emoji = lectureDone ? <img src="/skeleton.png" alt="" width={72} height={96} /> : failed ? '💪' : summary.score === 1 ? '🏆' : test ? '🎓' : '🎉';
+  const emoji = lectureDone ? <img src="/mascot.png" alt="" width={114} height={96} /> : failed ? '💪' : summary.score === 1 ? '🏆' : test ? '🎓' : '🎉';
   const title = lectureDone
     ? 'כל הכבוד!'
     : failed

@@ -7,7 +7,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.png', 'apple-touch-icon.png', 'skeleton.png'],
+      includeAssets: ['favicon.png', 'apple-touch-icon.png', 'mascot.png'],
       manifest: {
         name: 'Somatomy',
         short_name: 'Somatomy',
