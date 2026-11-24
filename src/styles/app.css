@@ -3277,3 +3277,7 @@ p,
   background: var(--grouped-bg-2);
   box-shadow: var(--shadow-1);
 }
+.lecture-grid + * .path-group,
+section:has(> .lecture-grid) + section .path-group {
+  margin-top: 22px;
+}

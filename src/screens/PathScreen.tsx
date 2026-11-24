@@ -35,7 +35,6 @@ export function PathScreen({ start, openTab }: { start: (s: Session) => void; op
   const [openNode, setOpenNode] = useState<PathNode | null>(null);
   const reduce = useReducedMotion();
   // the path tab is a grid of lecture tiles; a tile opens that lecture's own path (kept across tab switches)
-  const sections = SECTIONS.filter((u) => u.courseId === course.id);
   const [lectureId, setLectureIdRaw] = useState<string | null>(() => {
     try {
       return sessionStorage.getItem('path-lecture');
@@ -52,9 +51,15 @@ export function PathScreen({ start, openTab }: { start: (s: Session) => void; op
       /* ignore */
     }
   };
-  const section = sections.find((u) => u.id === lectureId) ?? null;
+  const section = SECTIONS.find((u) => u.id === lectureId) ?? null;
+  // an open lecture may belong to any subject: its own path and progress
+  const lecturePath = section ? pathOf(section.courseId) : path;
+  const lectureProgress = useMemo(() => pathProgress(state, lecturePath), [state, lecturePath]);
   const gridScroll = useRef(0);
   const openLecture = (id: string) => {
+    // practice and the dictionary follow the subject the student is studying
+    const courseId = SECTIONS.find((u) => u.id === id)?.courseId;
+    if (courseId && courseId !== getState().settings.course) updateSettings({ course: courseId });
     gridScroll.current = document.querySelector('.scroller')?.scrollTop ?? 0;
     setLectureId(id);
     requestAnimationFrame(() => document.querySelector('.scroller')?.scrollTo({ top: 0 }));
@@ -102,28 +107,6 @@ export function PathScreen({ start, openTab }: { start: (s: Session) => void; op
           <IconBook width={18} height={18} style={{ color: 'var(--blue)' }} /> <span className="num">{learnedCount}</span> נלמדו
         </span>
       </div>
-
-      {/* only subjects that already have slides; with a single subject there is nothing to choose */}
-      {!section && liveCourses.length > 1 && (
-        <nav className="subjects" aria-label="מקצועות">
-          {liveCourses.map((c) => (
-            <button
-              key={c.id}
-              className="subject press"
-              style={{ ['--hue' as string]: c.hue }}
-              aria-pressed={c.id === course.id}
-              onClick={() => {
-                updateSettings({ course: c.id });
-                setLectureId(null);
-              }}
-            >
-              <span aria-hidden>{c.icon}</span>
-              {c.title}
-              {news.some((n) => n.course.id === c.id) && <span className="subject-dot" aria-label="יש חדש" />}
-            </button>
-          ))}
-        </nav>
-      )}
 
       {!section && (
         <>
@@ -188,60 +171,65 @@ export function PathScreen({ start, openTab }: { start: (s: Session) => void; op
         >
           <button className="lecture-back press" onClick={closeLecture}>
             <IconChevron width={18} height={18} strokeWidth={2.6} />
-            כל ההרצאות ב{course.title}
+            כל ההרצאות
           </button>
-          <LecturePath u={section} path={path} progress={progress} state={state} currentRef={currentRef} onNode={setOpenNode} />
+          <LecturePath u={section} path={lecturePath} progress={lectureProgress} state={state} currentRef={currentRef} onNode={setOpenNode} />
         </motion.div>
       ) : (
-        sections.length > 0 && (
-          <section aria-label={course.title}>
-            <h2 className="path-group">
-              {course.icon} {course.title}
-            </h2>
-            <div className="lecture-grid">
-              {sections.map((u) => {
-                const items = [...u.terms, ...u.facts];
-                const learned = items.filter((t) => state.cards[t.id]).length;
-                const nodes = path.filter((n) => n.unit.id === u.id);
-                const finished = nodes.length > 0 && nodes.every((n) => progress.done[n.index]);
-                const isCur = cur?.unit.id === u.id;
-                return (
-                  <button
-                    key={u.id}
-                    className="lecture-tile press"
-                    style={{ ['--hue' as string]: u.hue }}
-                    onClick={() => openLecture(u.id)}
-                    aria-label={`הרצאה ${u.lecture}: ${u.title}${finished ? ', הושלמה' : ''}`}
-                  >
-                    <span className="lecture-tile-top">
-                      <span className="unit-glyph" aria-hidden>
-                        {u.icon}
-                      </span>
-                      {finished ? (
-                        <span className="lecture-tile-badge done" aria-hidden>
-                          <IconCheck width={12} height={12} strokeWidth={3} />
+        // every subject with slides, one after the other, each as a grid of lecture tiles
+        liveCourses.map((c) => {
+          const cPath = pathOf(c.id);
+          const cProgress = c.id === course.id ? progress : pathProgress(state, cPath);
+          return (
+            <section key={c.id} aria-label={c.title}>
+              <h2 className="path-group">
+                {c.icon} {c.title}
+              </h2>
+              <div className="lecture-grid">
+                {SECTIONS.filter((u) => u.courseId === c.id).map((u) => {
+                  const items = [...u.terms, ...u.facts];
+                  const learned = items.filter((t) => state.cards[t.id]).length;
+                  const nodes = cPath.filter((n) => n.unit.id === u.id);
+                  const finished = nodes.length > 0 && nodes.every((n) => cProgress.done[n.index]);
+                  const isCur = cur?.unit.id === u.id;
+                  return (
+                    <button
+                      key={u.id}
+                      className="lecture-tile press"
+                      style={{ ['--hue' as string]: u.hue }}
+                      onClick={() => openLecture(u.id)}
+                      aria-label={`${c.title}, הרצאה ${u.lecture}: ${u.title}${finished ? ', הושלמה' : ''}`}
+                    >
+                      <span className="lecture-tile-top">
+                        <span className="unit-glyph" aria-hidden>
+                          {u.icon}
                         </span>
-                      ) : isCur ? (
-                        <span className="lecture-tile-badge">עכשיו</span>
-                      ) : null}
-                    </span>
-                    <span className="unit-kicker">הרצאה {u.lecture}</span>
-                    <span className="lecture-tile-title">{u.title}</span>
-                    <span className="lecture-tile-bar" aria-hidden>
-                      <span style={{ transform: `scaleX(${items.length ? learned / items.length : 0})` }} />
-                    </span>
-                    <bdi dir="ltr" className="lecture-tile-count num">
-                      {learned}/{items.length}
-                    </bdi>
-                  </button>
-                );
-              })}
-            </div>
-          </section>
-        )
+                        {finished ? (
+                          <span className="lecture-tile-badge done" aria-hidden>
+                            <IconCheck width={12} height={12} strokeWidth={3} />
+                          </span>
+                        ) : isCur ? (
+                          <span className="lecture-tile-badge">עכשיו</span>
+                        ) : null}
+                      </span>
+                      <span className="unit-kicker">הרצאה {u.lecture}</span>
+                      <span className="lecture-tile-title">{u.title}</span>
+                      <span className="lecture-tile-bar" aria-hidden>
+                        <span style={{ transform: `scaleX(${items.length ? learned / items.length : 0})` }} />
+                      </span>
+                      <bdi dir="ltr" className="lecture-tile-count num">
+                        {learned}/{items.length}
+                      </bdi>
+                    </button>
+                  );
+                })}
+              </div>
+            </section>
+          );
+        })
       )}
 
-      <NodeSheet node={openNode} onClose={() => setOpenNode(null)} onStart={launch} progress={progress} />
+      <NodeSheet node={openNode} onClose={() => setOpenNode(null)} onStart={launch} progress={section ? lectureProgress : progress} />
     </Screen>
   );
 }
