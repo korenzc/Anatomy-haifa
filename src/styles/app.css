@@ -3377,3 +3377,67 @@ p,
 :root[data-theme='dark'] .continue-slim-where {
   color: oklch(0.78 0.12 var(--hue));
 }
+
+/* "ההתקדמות שלך" on the path tab: overall % and one bar per subject; opens the Progress tab */
+.my-progress {
+  display: block;
+  width: 100%;
+  margin: 2px 0 8px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  text-align: start;
+  color: inherit;
+  background: var(--grouped-bg-2);
+  box-shadow: var(--shadow-1);
+}
+.my-progress-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.my-progress-title {
+  font-weight: 700;
+  font-size: var(--fs-headline);
+}
+.my-progress-pct {
+  font-weight: 800;
+  font-size: var(--fs-title2);
+  color: var(--accent-text);
+}
+.my-progress-rows {
+  display: grid;
+  gap: 8px;
+}
+.my-progress-row {
+  display: grid;
+  grid-template-columns: minmax(0, 7.5rem) 1fr 2.6rem;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--fs-footnote);
+}
+.my-progress-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--label-2);
+}
+.my-progress-bar {
+  position: relative;
+  height: 6px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: color-mix(in oklch, oklch(0.6 0.12 var(--hue)) 18%, transparent);
+}
+.my-progress-bar > span {
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: oklch(0.62 0.16 var(--hue));
+  transform-origin: right;
+}
+.my-progress-n {
+  text-align: end;
+  color: var(--label-2);
+  font-weight: 600;
+}

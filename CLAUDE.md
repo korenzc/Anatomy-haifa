@@ -38,7 +38,7 @@ A subject with no lectures is hidden from students until its first deck arrives.
 Logic goes in `src/lib/`, screens only show things. Reuse what exists before writing new pieces. Keep changes focused. Match the surrounding style (Hebrew UI text, right-to-left).
 
 ## New material (slides)
-Whenever a deck arrives, use the `add-lecture` skill (`.claude/skills/add-lecture/`): cheap helper agents read the slides in parallel chunks; the main model checks, cuts to what matters for the quiz, simplifies, and fits it in. Every new lecture gets an `added` date (later changes an `updated` note) so it shows under "מה חדש".
+Whenever a deck arrives, use the `add-lecture` skill (`.claude/skills/add-lecture/`): cheap helper agents read the slides in parallel chunks; the main model checks, cuts to what matters for the quiz, simplifies, and fits it in. Every new lecture gets an `added` date (later changes an `updated` note). The "מה חדש" card was removed from the home screen (Koren, 24.11.2026); keep the dates and `content/features.ts` entries anyway, in case it comes back.
 
 ## Look and feel
 Light and airy by default (`#f5f7fc` background, `#4c7dff` accent, pastel cards); dark mode is soft charcoal, not black. Any change to how the app looks or feels: load the `emil-design-eng` skill first and build by its rules (for motion also `animate` / `review-animations`).

@@ -7,8 +7,7 @@ import { liveCourses } from '../content';
 import { getState, streakOf, updateSettings, useStore } from '../lib/store';
 import { todayKey } from '../lib/text';
 import { IconBolt, IconBook, IconCheck, IconChevron, IconFlame, IconLock, IconStar, IconTrophy } from '../components/Icons';
-import { Screen, Segmented, SendMaterial, Sheet, Rich, TipsCorner, WhatsNew } from '../components/ui';
-import { recentFeatures, recentNews, type NewsItem } from '../lib/news';
+import { Screen, Segmented, SendMaterial, Sheet, Rich, TipsCorner } from '../components/ui';
 import type { Feature } from '../content/features';
 
 /** Short label under a path node. */
@@ -80,12 +79,14 @@ export function PathScreen({ start, openTab }: { start: (s: Session) => void; op
   }, [course.id, section?.id]);
 
   const cur = path[progress.current];
-  const news = useMemo(() => recentNews(), []);
-  const featureNews = useMemo(() => recentFeatures(), []);
-  const openNews = (n: NewsItem) => {
-    updateSettings({ course: n.course.id });
-    openLecture(`lecture-${n.lecture.id}`);
-  };
+  // "ההתקדמות שלך": share of each subject's items the student has started learning
+  const subjectProgress = liveCourses.map((c) => {
+    const ids = SECTIONS.filter((u) => u.courseId === c.id).flatMap((u) => [...u.terms, ...u.facts].map((t) => t.id));
+    return { c, total: ids.length, learned: ids.filter((id) => state.cards[id]).length };
+  });
+  const allTotal = subjectProgress.reduce((n, x) => n + x.total, 0);
+  const allLearned = subjectProgress.reduce((n, x) => n + x.learned, 0);
+  const pct = (a: number, b: number) => (b ? Math.round((a / b) * 100) : 0);
   const learnedCount = Object.keys(state.cards).filter((k) => !k.startsWith('p:')).length;
 
   const launch = (node: PathNode, jump = false) => {
@@ -110,8 +111,28 @@ export function PathScreen({ start, openTab }: { start: (s: Session) => void; op
 
       {!section && (
         <>
-      <WhatsNew items={news} onOpen={openNews} showCourse={liveCourses.length > 1} features={featureNews} onOpenFeature={(f) => openTab?.(f.feature.tab)} />
-      <TipsCorner />
+          {allTotal > 0 && (
+            <button className="my-progress press" onClick={() => openTab?.('progress')} aria-label={`ההתקדמות שלך: ${pct(allLearned, allTotal)}%`}>
+              <span className="my-progress-head">
+                <span className="my-progress-title">ההתקדמות שלך</span>
+                <span className="my-progress-pct num">{pct(allLearned, allTotal)}%</span>
+              </span>
+              <span className="my-progress-rows">
+                {subjectProgress.map(({ c, total, learned }) => (
+                  <span key={c.id} className="my-progress-row" style={{ ['--hue' as string]: c.hue }}>
+                    <span className="my-progress-name">
+                      <span aria-hidden>{c.icon}</span> {c.title}
+                    </span>
+                    <span className="my-progress-bar" aria-hidden>
+                      <span style={{ transform: `scaleX(${total ? learned / total : 0})` }} />
+                    </span>
+                    <span className="my-progress-n num">{pct(learned, total)}%</span>
+                  </span>
+                ))}
+              </span>
+            </button>
+          )}
+          <TipsCorner />
         </>
       )}
 
