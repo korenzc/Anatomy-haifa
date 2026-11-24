@@ -1,0 +1,9 @@
+node_modules
+dist
+dev-dist
+.vercel
+*.log
+.DS_Store
+.env*.local
+.venv-audio/
+__pycache__/
