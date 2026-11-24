@@ -1,4 +1,5 @@
 import type { Course } from '../../types';
+import skull from './02-skull';
 
 const course: Course = {
   id: 'spine-back-skull',
@@ -6,7 +7,9 @@ const course: Course = {
   subtitle: 'חוליות, שרירי הגב והגולגולת',
   icon: '💀',
   hue: 150,
-  lectures: [],
+  lectures: [
+    skull,
+  ],
 };
 
 export default course;

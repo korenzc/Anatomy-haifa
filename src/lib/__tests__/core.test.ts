@@ -350,7 +350,8 @@ describe('courses and slide facts', () => {
   it('the whole year is listed; a course waiting for slides is never shown and has an empty path', () => {
     for (const id of ['intro', 'upper-limb', 'spine-back-skull', 'head-face-neck']) expect(courseById.get(id), id).toBeTruthy();
     expect(liveCourses.every((c) => c.lectures.length)).toBe(true);
-    const waiting = courses.find((c) => !c.lectures.length)!;
+    const waiting = courses.find((c) => !c.lectures.length);
+    if (!waiting) return; // every subject has slides now; nothing is waiting
     expect(liveCourses).not.toContain(waiting);
     expect(pathOf(waiting.id)).toEqual([]);
     const s = empty();
