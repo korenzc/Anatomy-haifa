@@ -460,7 +460,11 @@ describe('quiz meanings do not give the word away', () => {
   it('distractors are close: a heart attack is offered among heart words, not random organs', () => {
     const t = termById.get('t:myocardial infarction')!;
     const pool = terms.filter((x) => x.courseId === 'terminology');
-    for (let i = 0; i < 10; i++) expect(distractorTerms(t, 3, pool).some((x) => x.meaning.includes('לב'))).toBe(true);
+    // fixed seeds instead of Math.random, so the test can't fail by chance
+    for (let i = 0; i < 10; i++) {
+      const rnd = () => ((i * 37 + 11) % 100) / 100;
+      expect(distractorTerms(t, 3, pool, rnd).some((x) => x.meaning.includes('לב'))).toBe(true);
+    }
   });
   it('part distractors never overlap the target meaning (two right answers)', () => {
     for (const p of [...new Set(terms.flatMap((t) => t.partKeys))].slice(0, 60)) {
