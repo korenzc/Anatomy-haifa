@@ -26,7 +26,7 @@ Every task, whoever you work for:
 2. Make the change. **One change per commit**, with a clear message saying what and why, so the others can follow.
 3. Run the checks below. All three must pass. Check the changed screens at phone width.
 4. Push to `main`. If the push is refused because someone else pushed meanwhile: `git pull` (a merge, never `--force`), fix any conflict, run the checks again, push.
-5. About two minutes later, open the live site and check the change is there. If it is not, look at the latest deployment in the repo's Actions/Deployments; on Vercel's free plan a private repo may refuse to deploy commits by anyone but the project owner. If that happens, tell the person in plain words and tell Koren; the fix (an automatic "publish" commit in Koren's name, like Ethan's `.github/workflows/publish-koren.yml`) needs his OK.
+5. About two minutes later, open the live site and check the change is there. The repo is **public** (Koren's choice, 24.11.2026) precisely so that Vercel's free plan publishes every collaborator's commits, not only Koren's; keep it public. If the change is not live, look at the latest deployment (the commit's status on GitHub, or Vercel's Deployments) and tell the person and Koren in plain words. Never add commits in someone else's name to get around a Vercel limit.
 6. Tell the person it is live, in plain Hebrew.
 
 For a bigger or risky change you may still use a branch `claude/<short-name>` + a pull request, check its Vercel preview link at phone width, and merge it yourself (merge commit). Never rewrite or delete someone else's work to make yours fit; if two changes really clash, ask.
