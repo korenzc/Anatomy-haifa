@@ -4,7 +4,7 @@ Practice app for **theoretical anatomy (אנטומיה עיונית)**, owned by
 
 Read this first in every new chat, before opening code. **Keep it true:** any change that adds/moves/renames a file, changes how a feature works, or adds a rule → update this file in the same change.
 
-Last updated: 24.11.2026 (the copy: four empty anatomy subjects, no content yet).
+Last updated: 24.11.2026 (גפה עליונה: 11 lectures from 12 decks, 247 terms, ~600 facts, slide figures; a question's figure shows after answering; before that the copy itself).
 
 ## In one paragraph
 A phone-first PWA (React 19 + TypeScript + Vite). Content is TypeScript files compiled into the app. Every student's progress lives in their browser (localStorage key `shoresh:v1`, kept from the original app; harmless since every address has its own storage), with export/import to a file in the Progress tab. No server, no accounts. Spaced repetition is FSRS (`ts-fsrs`). Visits are counted by Vercel Web Analytics if turned on in the Vercel project (script tag in `index.html`). Every commit on `main` deploys to the live site on Vercel.
@@ -22,10 +22,11 @@ Overlays (full screen, from App.tsx): `components/SessionView.tsx` (a lesson/tes
 ## Content (src/content/)
 - `courses/index.ts` — the subjects in display order: `intro` (מבואות), `upper-limb` (גפה עליונה), `spine-back-skull` (עמוד שדרה, גב וגולגולת), `head-face-neck` (ראש, פנים וצוואר). A subject with `lectures: []` is never shown. `activeCourse` (path.ts) = the saved choice if it has slides, else the first subject with slides.
 - `courses/<course>/index.ts` — the `Course`; `courses/<course>/NN-*.ts` — one `Lecture` = one slide deck.
-- `lexicon.ts` — word parts and terms (only what some lecture teaches). Empty for now; anatomy lectures are mostly `facts`.
+- `lexicon.ts` — terms (only what some lecture teaches): anatomy structure names without `parts`, `he`/`meaning` = what the structure is, from the slides. A term belongs to the first lecture that lists it; later lectures just list it in `words`. `meaning` must not contain the word itself (it is the question).
+- `courses/upper-limb/` — 11 lectures in teaching order: bones (shoulder & arm, forearm & hand), joints (shoulder & elbow, forearm & hand), muscles (shoulder & arm, forearm, hand), brachial plexus & axilla, nerves of arm & forearm (cubital fossa), wrist & hand innervation, vessels (two decks: 'Arteries' + 'Artery summary', so facts carry `deck`). Figures in `public/slides/<lecture-id>/<slide>.webp` (`<deck#>-<slide>` for the two-deck lecture).
 - `tips.ts` — the tips corner (`{ id, date, author, title, body }`), empty for now.
 - `features.ts` — big app features for **מה חדש**; every big new feature gets an entry.
-- `types.ts` — the schema. Lecture fields: `id` (permanent!), `added` / `updated` (feed מה חדש), `concepts`+`quiz` (intro node), `words`, `parts`, `facts` (slide Q→A with `slide` number; `deck` when a lecture combines two decks; `img` = a diagram from the deck as a small `.webp` in `public/slides/<lecture>/`), `corrections`.
+- `types.ts` — the schema. Lecture fields: `id` (permanent!), `added` / `updated` (feed מה חדש), `concepts`+`quiz` (intro node), `words`, `parts`, `facts` (slide Q→A with `slide` number; `deck` when a lecture combines two decks; `img` = a slide figure as a small `.webp` in `public/slides/<lecture>/`; on a question it appears only **after answering**, because anatomy figures carry the answer in their labels; `imgFirst: true` shows it with the question, for questions about the figure itself), `corrections`.
 - `index.ts` — turns raw content into `CourseInfo`/`LectureInfo`/`TermInfo`/`FactInfo` with ids: terms `t:word`, parts `p:key`, facts `f:lectureId/factId`.
 - `test-fixtures/` — test-only content (see Logic → `__tests__`).
 - `scripts/validate-content.ts` (`npm run validate`) — checks everything.

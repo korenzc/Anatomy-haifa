@@ -101,6 +101,8 @@ export interface Fact {
   deck?: string;
   /** optional image from the slide, path under public/ (e.g. '/slides/cell-bio/3.webp') */
   img?: string;
+  /** show `img` with the question itself (only when the question asks about the figure and its labels don't give the answer away); otherwise it appears after answering */
+  imgFirst?: boolean;
 }
 
 export interface Lecture {

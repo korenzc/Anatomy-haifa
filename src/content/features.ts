@@ -15,4 +15,14 @@ export interface Feature {
   tab: 'path' | 'practice' | 'dictionary' | 'progress';
 }
 
-export const features: Feature[] = [];
+export const features: Feature[] = [
+  {
+    id: 'upper-limb',
+    date: '2026-11-24',
+    icon: '💪',
+    hue: 20,
+    title: 'מקצוע חדש: גפה עליונה',
+    note: '11 הרצאות מהמצגות: עצמות, מפרקים, שרירים, עצבים וכלי דם, עם האיורים מהשקפים.',
+    tab: 'path',
+  },
+];

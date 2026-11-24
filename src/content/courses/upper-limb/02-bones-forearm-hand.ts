@@ -1,0 +1,73 @@
+import type { Lecture } from '../../types';
+
+/** עצמות האמה ושורש כף היד. Diagrams from the deck live in public/slides/bones-forearm-hand/. */
+const IMG = '/slides/bones-forearm-hand';
+
+const lecture: Lecture = {
+  id: 'bones-forearm-hand',
+  title: 'עצמות האמה ושורש כף היד',
+  source: 'Bone Of The Upper Extremity - Ulna',
+  subtitle: 'ulna, radius ועצמות ה-carpal',
+  icon: '🦴',
+  hue: 55,
+  added: '2026-11-24',
+  intro: 'ההרצאה עוברת על שתי עצמות האמה: קודם ה-ulna ואחריה ה-radius, עם מבני האפיפיזה העליונה והתחתונה וקווי הגוף שלהן. אחר כך באות עצמות שורש כף היד, שורה פרוקסימלית ושורה דיסטלית, ולבסוף ה-tubercles של עצמות ה-carpal והליגמנט שמתוח ביניהן.',
+  concepts: [
+    { title: 'ה-ulna: אפיפיזה עליונה גדולה', body: 'לעצם גוף צר וארוך ושתי אפיפיזות. האפיפיזה העליונה גדולה בהרבה מהתחתונה. שם נמצאים ה-olecranon (בליטה גדולה אחורית), ה-trochlear notch, ה-coronoid process, ה-ulnar tuberosity וה-radial notch.' },
+    { title: 'ה-olecranon והמרפק', body: 'ה-olecranon הוא בליטה גדולה בצד האחורי של ה-ulna. בזמן extension במרפק הוא נכנס ל-olecranon fossa של ה-humerus. ה-trochlear notch, שקעור, נמצא בקדמתו ומתאים ל-trochlea של ה-humerus.' },
+    { title: 'גוף ה-ulna והקצה התחתון', body: 'ה-interosseous border הלטרלית פונה ל-radius ואליה מתחבר ה-interosseous membrane. מתחת ל-radial notch יש supinator crest. הקצה התחתון: ulnar head עגול שיוצר מפרק עם ה-radius, ו-ulnar styloid process.' },
+    { title: 'ה-radius: האמה הלטרלית', body: 'ה-radius הוא העצם הלטרלית באמה. בראשו (head of radius) יש fovea שמתאימה ל-capitulum של ה-humerus וכך נוצר ה-humeroradial joint. מתחת ל-head בא ה-radial neck ואחריו ה-radial tuberosity.' },
+    { title: 'גוף ה-radius והקצה התחתון', body: 'ה-interosseous border שלו היא השפה המדיאלית, הפונה ל-ulna. ה-pronator teres impression הוא אזור מחוספס במרכז המשטח הלטרלי. בקצה התחתון: radial styloid process, ulnar notch (מפרק עם ה-ulnar head) ו-carpal articulation (מפרק עם עצמות שורש כף היד).' },
+    { title: 'עצמות שורש כף היד: שתי שורות', body: 'שורה פרוקסימלית: scaphoid, lunate, pisiform, triquetrum. שורה דיסטלית: trapezium, trapezoid, capitate, hamate. מפרק שורש כף היד נוצר בעיקר מ-scaphoid ומ-lunate, ו-hamate יוצרת מפרק עם metacarpal 4 ו-5.' },
+    { title: 'Tubercles והליגמנט', body: 'בצד הפלמרי יש tubercles על ה-scaphoid ועל ה-trapezium. בשרטוט ה-carpal canal מסומנים באדום גם ה-hamate with hook וה-pisiform, ושם נראה ה-transverse carpal ligament מתוח מעל העצמות.' },
+  ],
+  quiz: [
+    { q: 'איזו אפיפיזה של ה-ulna גדולה בהרבה מהאחרת?', options: ['העליונה (proximal)', 'התחתונה (distal)', 'שתיהן שוות בגודלן'], answer: 0, explain: 'בשקף 1: האפיפיזה העליונה גדולה בהרבה מהתחתונה.' },
+    { q: 'אילו שתי עצמות משתתפות בעיקר במפרק שורש כף היד?', options: ['scaphoid ו-lunate', 'pisiform ו-triquetrum', 'capitate ו-hamate'], answer: 0, explain: 'בשקף 12: העצמות העיקריות במפרק שורש כף היד הן scaphoid ו-lunate.' },
+    { q: 'איזו עצם בשורה הדיסטלית יוצרת מפרק עם metacarpal 4 ו-5?', options: ['hamate', 'trapezoid', 'capitate'], answer: 0, explain: 'בשקף 17: ה-hamate יוצרת מפרק עם metacarpal 4 ו-5.' },
+  ],
+  words: ['olecranon', 'trochlear notch', 'coronoid process', 'ulnar tuberosity', 'radial notch', 'interosseous border', 'supinator crest', 'ulnar head', 'ulnar styloid process', 'head of radius', 'fovea', 'radial neck', 'radial tuberosity', 'pronator teres impression', 'radial styloid process', 'ulnar notch', 'carpal articulation', 'scaphoid', 'lunate', 'triquetrum', 'pisiform', 'trapezium', 'trapezoid', 'capitate', 'hamate', 'transverse carpal ligament'],
+  facts: [
+    { id: 'ulna-bigger-epiphysis', q: 'איזו אפיפיזה של ה-ulna גדולה בהרבה?', a: 'העליונה (proximal)', wrong: ['התחתונה (distal)', 'גוף העצם (shaft)', 'שתיהן בגודל דומה'], explain: 'לעצם ה-ulna שתי אפיפיזות; העליונה גדולה בהרבה מהתחתונה.', slide: 1 },
+    { id: 'olecranon-location', q: 'היכן נמצא ה-olecranon של ה-ulna?', a: 'בליטה גדולה בצידה האחורי', wrong: ['זיז בקדמת ה-trochlear notch', 'מגרעת קטנה בצד הלטרלי', 'בליטה בקצה התחתון של העצם'], explain: 'ה-olecranon הוא בליטה גדולה בצד האחורי של האפיפיזה העליונה.', slide: 1 },
+    { id: 'olecranon-extension', q: 'לתוך מה נכנס ה-olecranon בזמן extension במרפק?', a: 'olecranon fossa של ה-humerus', wrong: ['trochlea של ה-humerus', 'capitulum של ה-humerus', 'fovea של ה-radius'], explain: 'בזמן extension במפרק המרפק ה-olecranon נכנס ל-olecranon fossa של ה-humerus.', slide: 1, img: `${IMG}/6.webp` },
+    { id: 'trochlear-notch-fits', q: 'איזה משטח קעור בקדמת ה-olecranon מתאים ל-trochlea של ה-humerus?', a: 'trochlear notch', wrong: ['radial notch', 'ulnar notch', 'coronoid process'], explain: 'ה-trochlear notch הוא משטח קעור בקדמת ה-olecranon ומתאים ל-trochlea של ה-humerus.', slide: 1 },
+    { id: 'coronoid-location', q: 'היכן נמצא ה-coronoid process?', a: 'זיז בקדמת ה-trochlear notch', wrong: ['בליטה גדולה בצד האחורי של ה-ulna', 'רכס מתחת ל-radial notch', 'בליטה בקצה התחתון של ה-ulna'], explain: 'ה-coronoid process הוא זיז שנמצא בקדמת ה-trochlear notch.', slide: 1 },
+    { id: 'ulnar-tuberosity-location', q: 'היכן נמצא ה-ulnar tuberosity?', a: 'בצד האנטריורי, בגבול בין האפיפיזה העליונה לגוף', wrong: ['בצד האחורי של ה-olecranon', 'בקצה הדיסטלי של העצם', 'בצד הלטרלי של ה-trochlear notch'], explain: 'זו בליטה מחוספסת בצד האנטריורי של העצם, בגבול בין ה-proximal epiphysis ל-shaft.', slide: 1 },
+    { id: 'radial-notch-fits', q: 'עם איזה חלק מתאים ה-radial notch של ה-ulna?', a: 'radial head', wrong: ['capitulum של ה-humerus', 'trochlea של ה-humerus', 'ulnar notch של ה-radius'], explain: 'ה-radial notch היא מגרעת קטנה בצד הלטרלי של ה-trochlear notch ומתאימה ל-radial head.', slide: 1, img: `${IMG}/6.webp` },
+    { id: 'radial-notch-location', q: 'היכן נמצא ה-radial notch?', a: 'בצד הלטרלי של ה-trochlear notch', wrong: ['בצד המדיאלי התחתון של ה-radius', 'בקצה הדיסטלי של ה-ulna', 'בצד האחורי של ה-olecranon'], explain: 'מגרעת קטנה בצד הלטרלי של ה-trochlear notch של ה-ulna.', slide: 1 },
+    { id: 'ulna-interosseous-border', q: 'איזו שפה של גוף ה-ulna פונה ל-radius ואליה מתחבר ה-interosseous membrane?', a: 'interosseous border (השפה הלטרלית)', wrong: ['supinator crest', 'ulnar tuberosity', 'radial notch'], explain: 'ה-interosseous border של ה-ulna היא השפה הלטרלית, והקצה השני של ה-interosseous membrane מתחבר אליה.', slide: 2 },
+    { id: 'ulna-border-side', q: 'באיזו שפה של גוף ה-ulna מתחבר ה-interosseous membrane?', a: 'השפה הלטרלית', wrong: ['השפה המדיאלית', 'השפה האנטריורית', 'השפה האחורית'], explain: 'בשקף 2: השפה הלטרלית של ה-ulna פונה ל-radius. (ב-radius זו השפה המדיאלית.)', slide: 2 },
+    { id: 'supinator-crest-muscle', q: 'לאיזה שריר משמש ה-supinator crest נקודת חיבור?', a: 'supinator', wrong: ['pronator teres', 'pronator quadratus', 'brachioradialis'], explain: 'ה-supinator crest הוא נקודת חיבור לשריר ה-supinator.', slide: 2 },
+    { id: 'supinator-crest-location', q: 'היכן נמצא ה-supinator crest?', a: 'בחלק העליון-לטרלי של גוף ה-ulna, מתחת ל-radial notch', wrong: ['בצד האחורי של האפיפיזה העליונה', 'בקצה הדיסטלי של ה-ulna', 'במרכז המשטח הלטרלי של גוף ה-radius'], explain: 'רכס בחלק העליון-לטרלי של shaft ה-ulna, מתחת ל-radial notch.', slide: 2, img: `${IMG}/6.webp` },
+    { id: 'ulnar-head-joint', q: 'עם איזה חלק של ה-radius יוצר ה-ulnar head מפרק?', a: 'ulnar notch', wrong: ['carpal articulation', 'fovea', 'radial tuberosity'], explain: 'ה-ulnar head עגול וקצהו הדיסטלי יוצר מפרק עם ה-ulnar notch בעצם ה-radius.', slide: 2 },
+    { id: 'ulnar-styloid-location', q: 'היכן נמצא ה-ulnar styloid process?', a: 'בליטה בקצה התחתון של ה-ulna', wrong: ['בליטה בקצה הדיסטלי של ה-radius', 'בצד האחורי של האפיפיזה העליונה', 'בליטה מתחת ל-radial neck'], explain: 'זו בליטה בקצה התחתון (הדיסטלי) של עצם ה-ulna.', slide: 2, img: `${IMG}/5.webp` },
+    { id: 'radius-lateral', q: 'איזו עצם היא הלטרלית מבין עצמות האמה?', a: 'radius', wrong: ['ulna', 'humerus', 'scaphoid'], explain: 'ה-radius הוא הלטרלי מבין שתי עצמות האמה; יש לו גוף צר וארוך ושתי אפיפיזות.', slide: 7 },
+    { id: 'radial-head-joint', q: 'עם איזו עצם יוצר היקף ה-head of radius מפרק?', a: 'ulna', wrong: ['humerus', 'scaphoid', 'lunate'], explain: 'ראש ה-radius בצורת גליל, והיקפו יוצר מפרק עם ה-ulna.', slide: 7, img: `${IMG}/9.webp` },
+    { id: 'fovea-fits', q: 'ה-fovea שבחלק העליון של ה-radial head מתאימה לאיזה חלק של ה-humerus?', a: 'capitulum', wrong: ['trochlea', 'olecranon fossa', 'trochlear notch'], explain: 'ה-fovea מתאימה ל-capitulum של ה-humerus.', slide: 7 },
+    { id: 'humeroradial-joint', q: 'איזה מפרק נוצר בין ה-capitulum של ה-humerus לבין ה-fovea של ה-radius?', a: 'humeroradial joint', wrong: ['מפרק שורש כף היד', 'מפרק בין ה-radius ל-ulna (ulnar notch)', 'מפרק בין ה-trochlea ל-trochlear notch'], explain: 'החלקים האלה יוצרים מפרק בין ה-humerus ל-radius: humeroradial joint.', slide: 7 },
+    { id: 'radial-neck-def', q: 'איך נקרא החלק הצר של ה-radius שמתחת ל-radial head?', a: 'radial neck', wrong: ['radial tuberosity', 'radial styloid process', 'ulnar notch'], explain: 'ה-radial neck הוא החלק הצר שמתחת ל-radial head.', slide: 7 },
+    { id: 'radial-tuberosity-location', q: 'היכן נמצא ה-radial tuberosity?', a: 'בליטה גדולה מתחת ל-radial neck', wrong: ['מגרעת מפרקית בצד המדיאלי התחתון', 'בליטה בקצה הדיסטלי של העצם', 'שקע בחלק העליון של ה-radial head'], explain: 'ה-radial tuberosity הוא בליטה גדולה מתחת ל-radial neck.', slide: 7, img: `${IMG}/10.webp` },
+    { id: 'radius-interosseous-border', q: 'באיזו שפה של גוף ה-radius מתחבר ה-interosseous membrane?', a: 'השפה המדיאלית (פונה ל-ulna)', wrong: ['השפה הלטרלית', 'השפה האנטריורית', 'השפה האחורית'], explain: 'בשקף 8: השפה המדיאלית של ה-radius פונה ל-ulna, ואליה מתחבר ה-interosseous membrane.', slide: 8 },
+    { id: 'pronator-teres-impression', q: 'איזה אזור מחוספס במרכז המשטח הלטרלי של גוף ה-radius משמש לחיבור שריר ה-pronator teres?', a: 'pronator teres impression', wrong: ['radial tuberosity', 'supinator crest', 'ulnar tuberosity'], explain: 'ה-pronator teres impression הוא אזור מחוספס במרכז המשטח הלטרלי של ה-shaft, אליו מתחבר שריר ה-pronator teres.', slide: 8 },
+    { id: 'radial-styloid-location', q: 'היכן נמצא ה-radial styloid process?', a: 'בליטה בקצה הדיסטלי של ה-radius', wrong: ['בליטה בקצה התחתון של ה-ulna', 'בליטה גדולה מתחת ל-radial neck', 'שקע בחלק העליון של ה-radial head'], explain: 'זו בליטה בקצה הדיסטלי של עצם ה-radius.', slide: 8 },
+    { id: 'ulnar-notch-fits', q: 'איזו מגרעת מפרקית בצד המדיאלי התחתון של ה-radius מתאימה ל-ulnar head?', a: 'ulnar notch', wrong: ['radial notch', 'carpal articulation', 'fovea'], explain: 'בין ה-ulnar notch ל-ulnar head יש מפרק.', slide: 8 },
+    { id: 'carpal-articulation-def', q: 'מהו ה-carpal articulation של ה-radius?', a: 'המשטח המפרקי התחתון, מפרק עם עצמות שורש כף היד', wrong: ['מגרעת מפרקית שמתאימה ל-ulnar head', 'שקע בחלק העליון של ה-radial head', 'בליטה בקצה הדיסטלי של העצם'], explain: 'זה המשטח המפרקי התחתון של ה-radius, למפרק עם עצמות שורש כף היד.', slide: 8, img: `${IMG}/10.webp` },
+    { id: 'proximal-row-bones', q: 'אילו ארבע עצמות נמצאות בשורה הפרוקסימלית של שורש כף היד?', a: 'scaphoid, lunate, triquetrum, pisiform', wrong: ['scaphoid, lunate, capitate, hamate', 'trapezium, trapezoid, capitate, hamate', 'scaphoid, triquetrum, trapezium, hamate'], explain: 'שורה פרוקסימלית: scaphoid, lunate, pisiform, triquetrum.', slide: 12 },
+    { id: 'distal-row-bones', q: 'אילו ארבע עצמות נמצאות בשורה הדיסטלית של שורש כף היד?', a: 'trapezium, trapezoid, capitate, hamate', wrong: ['scaphoid, lunate, pisiform, triquetrum', 'trapezium, trapezoid, lunate, hamate', 'scaphoid, trapezoid, capitate, pisiform'], explain: 'שורה דיסטלית: trapezium, trapezoid, capitate, hamate.', slide: 17 },
+    { id: 'wrist-joint-main-bones', q: 'אילו שתי עצמות עיקריות משתתפות במפרק שורש כף היד?', a: 'scaphoid ו-lunate', wrong: ['pisiform ו-triquetrum', 'capitate ו-hamate', 'trapezium ו-trapezoid'], explain: 'העצמות העיקריות המשתתפות במפרק שורש כף היד הן scaphoid ו-lunate.', slide: 12 },
+    { id: 'pisiform-position', q: 'היכן נמצאת עצם ה-pisiform ביחס ל-triquetrum?', a: 'anterior (לפניה)', wrong: ['posterior (מאחוריה)', 'distal (מתחתיה)', 'lateral (מצדה הלטרלי)'], explain: 'עצם ה-pisiform נמצאת anterior לעצם ה-triquetrum.', slide: 12, img: `${IMG}/12.webp` },
+    { id: 'proximal-row-not-distal', q: 'איזו מהעצמות האלה שייכת לשורה הפרוקסימלית?', a: 'triquetrum', wrong: ['trapezoid', 'capitate', 'hamate'], explain: 'ה-triquetrum בשורה הפרוקסימלית; השלוש האחרות בשורה הדיסטלית.', slide: 12 },
+    { id: 'distal-row-member', q: 'איזו מהעצמות האלה שייכת לשורה הדיסטלית?', a: 'capitate', wrong: ['lunate', 'pisiform', 'scaphoid'], explain: 'ה-capitate בשורה הדיסטלית; השלוש האחרות בשורה הפרוקסימלית.', slide: 17 },
+    { id: 'hamate-metacarpals', q: 'עם אילו עצמות metacarpal יוצרת ה-hamate מפרק?', a: 'metacarpal 4 ו-5', wrong: ['metacarpal 1 ו-2', 'metacarpal 2 ו-3', 'metacarpal 3 ו-4'], explain: 'עצם ה-hamate יוצרת מפרק עם metacarpal (4) ו-(5).', slide: 17, img: `${IMG}/17.webp` },
+    { id: 'tubercle-bones', q: 'על אילו שתי עצמות carpal מסומנים tubercles בצד הפלמרי?', a: 'scaphoid ו-trapezium', wrong: ['lunate ו-triquetrum', 'capitate ו-trapezoid', 'triquetrum ו-capitate'], explain: 'בשקף 23 מסומנים scaphoid tubercle ו-tubercle on trapezium.', slide: 23 },
+    { id: 'hamate-hook', q: 'איזו עצם בשורה הדיסטלית מסומנת בשרטוט ה-carpal canal עם hook?', a: 'hamate', wrong: ['capitate', 'trapezoid', 'trapezium'], explain: 'בשקף 23 מסומן "Hamate with hook" ביחד עם pisiform ו-tubercles של ה-trapezium וה-scaphoid.', slide: 23 },
+    { id: 'ulna-extensor-groove', q: 'איזה groove מסומן ב-dorsal view על ה-ulna הדיסטלית?', a: 'groove for extensor carpi ulnaris', wrong: ['groove for extensor pollicis longus', 'groove for extensor carpi radialis brevis', 'groove for extensor pollicis brevis ו-abductor pollicis longus'], explain: 'בשרטוט ה-dorsal ה-groove for extensor carpi ulnaris נמצא ב-ulna; השאר ב-radius.', slide: 22 },
+  ],
+  corrections: [
+    { slide: 8, says: 'Interosseous Membrane – השפה המדיאלית של ה-radius', correct: 'Interosseous border (ה-membrane מתחבר אליה)' },
+    { slide: 17, says: 'כותרת "Carpal bone – proximal row" על שקף השורה הדיסטלית', correct: 'זו השורה הדיסטלית (Carpal bone – distal row)' },
+  ],
+};
+
+export default lecture;

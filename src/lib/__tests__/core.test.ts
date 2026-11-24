@@ -93,7 +93,7 @@ describe('path', () => {
   const unitNodes = (id: string) => PATH.filter((n) => n.unit.id === id);
   it('covers every lecture term exactly once and ends with a final test', () => {
     const lessonTerms = PATH.flatMap((n) => (n.kind === 'lesson' ? n.terms.map((t) => t.id) : []));
-    const lectureTerms = new Set(lectures.flatMap((l) => l.termList.map((t) => t.id)));
+    const lectureTerms = new Set(lectures.filter((l) => l.courseId === 'terminology').flatMap((l) => l.termList.map((t) => t.id)));
     expect(lessonTerms.length).toBe(lectureTerms.size);
     expect(new Set(lessonTerms)).toEqual(lectureTerms);
     expect(PATH[PATH.length - 1].kind).toBe('checkpoint');
@@ -457,7 +457,8 @@ describe('quiz meanings do not give the word away', () => {
   });
   it('distractors are close: a heart attack is offered among heart words, not random organs', () => {
     const t = termById.get('t:myocardial infarction')!;
-    for (let i = 0; i < 10; i++) expect(distractorTerms(t).some((x) => x.meaning.includes('לב'))).toBe(true);
+    const pool = terms.filter((x) => x.courseId === 'terminology');
+    for (let i = 0; i < 10; i++) expect(distractorTerms(t, 3, pool).some((x) => x.meaning.includes('לב'))).toBe(true);
   });
   it('part distractors never overlap the target meaning (two right answers)', () => {
     for (const p of [...new Set(terms.flatMap((t) => t.partKeys))].slice(0, 60)) {

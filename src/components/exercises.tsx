@@ -512,8 +512,12 @@ export const SlideRef = ({ f }: { f: FactInfo }) =>
     </span>
   ) : null;
 
-const FactImage = ({ f }: { f: FactInfo }) =>
-  f.img ? <img className="fact-img" src={f.img} alt="" loading="lazy" decoding="async" /> : null;
+/**
+ * The slide figure. On a question it appears only once the student has answered (anatomy figures
+ * usually carry the answer in their labels), unless the question is about the figure (`imgFirst`).
+ */
+const FactImage = ({ f, revealed = true }: { f: FactInfo; revealed?: boolean }) =>
+  f.img && (revealed || f.imgFirst) ? <img className="fact-img" src={f.img} alt="" loading="lazy" decoding="async" /> : null;
 
 export function TeachFact({ ex }: { ex: Extract<Exercise, { kind: 'teach-fact' }> }) {
   const f = ex.fact;
@@ -606,7 +610,7 @@ export function FactChoice({ ex, revealed, testMode, bind }: ExerciseProps<Extra
       <div className="ex-kicker">
         מה התשובה? <SlideRef f={ex.fact} />
       </div>
-      <FactImage f={ex.fact} />
+      <FactImage f={ex.fact} revealed={revealed} />
       <div className="ex-prompt">
         <Rich>{ex.fact.q}</Rich>
       </div>
@@ -629,7 +633,7 @@ export function TrueFalse({ ex, revealed, testMode, bind }: ExerciseProps<Extrac
       <div className="ex-kicker">
         נכון או לא נכון? <SlideRef f={ex.fact} />
       </div>
-      <FactImage f={ex.fact} />
+      <FactImage f={ex.fact} revealed={revealed} />
       <div className="ex-prompt">
         <Rich>{ex.fact.q}</Rich>
       </div>
@@ -664,7 +668,7 @@ export function TypeFact({ ex, revealed, bind }: ExerciseProps<Extract<Exercise,
       <div className="ex-kicker hard">
         תרגיל קשה · כתבו את התשובה באנגלית <SlideRef f={ex.fact} />
       </div>
-      <FactImage f={ex.fact} />
+      <FactImage f={ex.fact} revealed={revealed} />
       <div className="ex-prompt">
         <Rich>{ex.fact.q}</Rich>
       </div>
