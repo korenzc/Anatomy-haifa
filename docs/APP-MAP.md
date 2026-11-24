@@ -44,6 +44,7 @@ Overlays (full screen, from App.tsx): `components/SessionView.tsx` (a lesson/tes
 | `srs.ts` | FSRS wrapper: `review`, `strength`, `retrievability`. |
 | `store.ts` | The persisted state + `sanitize` (accepts old/corrupt data); `daily` = answers/correct per day. Shape changes must keep old data loading. `theme` defaults to light; `themePicked` marks a user's own choice. |
 | `news.ts` | `recentNews()` — lectures added/updated in the last 21 days, and `recentFeatures()` — big app features from `content/features.ts`; both feed מה חדש (a feature row opens its tab). |
+| `update.ts` | `keepAppUpdated()` (called in `main.tsx`): each time the app returns to the foreground it asks the service worker for a new version; once a new version has taken over, it reloads the next time the app is brought back (never while the user is looking). Needed because iOS resumes home-screen apps for days with the old code. |
 | `share.ts` | WhatsApp link to Koren with a ready message, for "send us material". |
 | `flash.ts` | Flashcard decks (never touch FSRS). |
 | `speech.ts`, `audio.ts` | Pronunciation: recordings in `public/audio/` (`npm run audio`; run it after every new lecture, `npm run validate` warns about words without one), else the phone's voice. Plays **only when the speaker button is tapped**, never on its own. |
