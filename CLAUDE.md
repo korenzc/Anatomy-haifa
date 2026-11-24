@@ -1,6 +1,6 @@
 # אנטומיה חיפה — rules for every Claude working here
 
-The app belongs to Koren (GitHub: `korenzc`). He is not a programmer: explain everything in plain Hebrew, no jargon, and do the git work for him.
+The app belongs to Koren (GitHub: `korenzc`). Friends he adds as collaborators on GitHub may work on it too, with the same rights (since 24.11.2026). Assume whoever you work for is not a programmer: explain everything in plain Hebrew, no jargon, and do the git work for them.
 
 It started on 24.11.2026 as a copy of Ethan's app **לדבר רפואית** (`ethankol/ledaber-refuit`), with the old content, the leaderboard, the class chat, the account backup and the address move taken out. It is a separate project now: nothing here touches Ethan's app, and nothing from there is pulled in automatically.
 
@@ -19,7 +19,17 @@ It started on 24.11.2026 as a copy of Ethan's app **לדבר רפואית** (`et
 A subject with no lectures is hidden from students until its first deck arrives.
 
 ## Publishing
-`main` is the live site (Vercel builds every commit on `main`). Koren owns the repo, so changes go straight to `main` once the checks below pass. For a bigger or risky change, use a branch `claude/<short-name>` + a pull request, check the Vercel preview link at phone width, then merge with a merge commit.
+`main` is the live site: https://anatomy-haifa.vercel.app (Vercel builds every commit on `main`). **Everyone publishes straight to `main`**, Koren and the friends he added alike; nobody waits for anyone's approval (Koren's decision, 24.11.2026).
+
+Every task, whoever you work for:
+1. **Start from the latest `main`** (`git checkout main && git pull`): someone else may have changed the app since your last session. Read `docs/APP-MAP.md` again if it changed.
+2. Make the change. **One change per commit**, with a clear message saying what and why, so the others can follow.
+3. Run the checks below. All three must pass. Check the changed screens at phone width.
+4. Push to `main`. If the push is refused because someone else pushed meanwhile: `git pull` (a merge, never `--force`), fix any conflict, run the checks again, push.
+5. About two minutes later, open the live site and check the change is there. If it is not, look at the latest deployment in the repo's Actions/Deployments; on Vercel's free plan a private repo may refuse to deploy commits by anyone but the project owner. If that happens, tell the person in plain words and tell Koren; the fix (an automatic "publish" commit in Koren's name, like Ethan's `.github/workflows/publish-koren.yml`) needs his OK.
+6. Tell the person it is live, in plain Hebrew.
+
+For a bigger or risky change you may still use a branch `claude/<short-name>` + a pull request, check its Vercel preview link at phone width, and merge it yourself (merge commit). Never rewrite or delete someone else's work to make yours fit; if two changes really clash, ask.
 
 ## Where things go
 | What | Where |

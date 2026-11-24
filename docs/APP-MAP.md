@@ -7,7 +7,7 @@ Read this first in every new chat, before opening code. **Keep it true:** any ch
 Last updated: 24.11.2026 (מבואות 4 lectures + eye & orbit; path tab as lecture tiles; before that גפה עליונה: 11 lectures from 12 decks, 247 terms, ~600 facts, slide figures; a question's figure shows after answering; before that the copy itself).
 
 ## In one paragraph
-A phone-first PWA (React 19 + TypeScript + Vite). Content is TypeScript files compiled into the app. Every student's progress lives in their browser (localStorage key `shoresh:v1`, kept from the original app; harmless since every address has its own storage), with export/import to a file in the Progress tab. No server, no accounts. Spaced repetition is FSRS (`ts-fsrs`). Visits are counted by Vercel Web Analytics if turned on in the Vercel project (script tag in `index.html`). Every commit on `main` deploys to the live site on Vercel.
+A phone-first PWA (React 19 + TypeScript + Vite). Content is TypeScript files compiled into the app. Every student's progress lives in their browser (localStorage key `shoresh:v1`, kept from the original app; harmless since every address has its own storage), with export/import to a file in the Progress tab. No server, no accounts. Spaced repetition is FSRS (`ts-fsrs`). Visits are counted by Vercel Web Analytics if turned on in the Vercel project (script tag in `index.html`). Every commit on `main` deploys to the live site on Vercel. Koren and the friends he adds as GitHub collaborators all publish straight to `main` (rules in CLAUDE.md → Publishing).
 
 ## The four tabs (src/App.tsx → src/screens/)
 | Tab | File | What it shows |
