@@ -1,13 +1,53 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
 <defs>
-<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f4f7ff"/><stop offset="1" stop-color="#e7eeff"/></linearGradient>
-<linearGradient id="s" gradientUnits="userSpaceOnUse" x1="0" y1="95" x2="0" y2="420"><stop offset="0" stop-color="#16b4b4"/><stop offset=".5" stop-color="#3f7ee8"/><stop offset="1" stop-color="#7a4fe0"/></linearGradient>
-<mask id="m" maskUnits="userSpaceOnUse" x="0" y="0" width="512" height="512"><path d="M 352 150 C 300 105, 175 110, 172 185 C 169 255, 340 250, 342 330 C 344 405, 215 415, 160 365" fill="none" stroke="#fff" stroke-width="114" stroke-linecap="round"/></mask>
-<filter id="sp" filterUnits="userSpaceOnUse" x="0" y="0" width="512" height="512"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#2a2f7a" flood-opacity=".18"/></filter>
-<filter id="sh" filterUnits="userSpaceOnUse" x="0" y="0" width="512" height="512"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#3b4fb0" flood-opacity=".2"/></filter>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3effd"/><stop offset="1" stop-color="#e9e2fb"/></linearGradient>
+<linearGradient id="disc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b7a2f7"/><stop offset="1" stop-color="#9273ea"/></linearGradient>
+<clipPath id="circ"><circle cx="246" cy="268" r="196"/></clipPath>
+<clipPath id="headc"><ellipse cx="236" cy="236" rx="126" ry="116"/></clipPath>
+<clipPath id="torsoc"><path d="M 132 520 C 132 424, 180 372, 242 370 C 306 370, 350 420, 354 520 Z"/></clipPath>
+<filter id="soft" filterUnits="userSpaceOnUse" x="0" y="0" width="512" height="512"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#4a2fa0" flood-opacity=".18"/></filter>
 </defs>
 <rect width="512" height="512" fill="url(#bg)"/>
-<g transform="translate(256 256) scale(0.88) translate(-256 -256)">
-<path d="M 352 150 C 300 105, 175 110, 172 185 C 169 255, 340 250, 342 330 C 344 405, 215 415, 160 365" fill="none" stroke="url(#s)" stroke-width="128" stroke-linecap="round" filter="url(#sh)"/>
-<g filter="url(#sp)"><g transform="translate(214.0 118.0) rotate(-27.7)" fill="#fff"><rect x="12.7" y="-1.7" width="15.1" height="11.2" rx="5.6" transform="rotate(24 18.0 0)"/><rect x="-18.0" y="-11.2" width="36.0" height="22.4" rx="8.5"/></g><g transform="translate(229.8 149.1) rotate(-25.3)" fill="#fff"><rect x="13.6" y="-1.7" width="16.1" height="11.2" rx="5.6" transform="rotate(24 19.2 0)"/><rect x="-19.2" y="-11.2" width="38.4" height="22.4" rx="8.5"/></g><g transform="translate(242.5 180.2) rotate(-18.7)" fill="#fff"><rect x="14.4" y="-1.7" width="17.2" height="11.2" rx="5.6" transform="rotate(24 20.4 0)"/><rect x="-20.4" y="-11.2" width="40.9" height="22.4" rx="8.5"/></g><g transform="translate(250.7 211.3) rotate(-10.6)" fill="#fff"><rect x="15.3" y="-1.7" width="18.2" height="11.2" rx="5.6" transform="rotate(24 21.7 0)"/><rect x="-21.7" y="-11.2" width="43.3" height="22.4" rx="8.5"/></g><g transform="translate(254.8 242.4) rotate(-5.1)" fill="#fff"><rect x="16.2" y="-1.7" width="19.2" height="11.2" rx="5.6" transform="rotate(24 22.9 0)"/><rect x="-22.9" y="-11.2" width="45.8" height="22.4" rx="8.5"/></g><g transform="translate(257.2 273.6) rotate(-5.1)" fill="#fff"><rect x="17.0" y="-1.7" width="20.3" height="11.2" rx="5.6" transform="rotate(24 24.1 0)"/><rect x="-24.1" y="-11.2" width="48.2" height="22.4" rx="8.5"/></g><g transform="translate(261.3 304.7) rotate(-10.6)" fill="#fff"><rect x="17.9" y="-1.7" width="21.3" height="11.2" rx="5.6" transform="rotate(24 25.3 0)"/><rect x="-25.3" y="-11.2" width="50.7" height="22.4" rx="8.5"/></g><g transform="translate(269.5 335.8) rotate(-18.7)" fill="#fff"><rect x="18.7" y="-1.7" width="22.3" height="11.2" rx="5.6" transform="rotate(24 26.6 0)"/><rect x="-26.6" y="-11.2" width="53.1" height="22.4" rx="8.5"/></g><g transform="translate(282.2 366.9) rotate(-25.3)" fill="#fff"><rect x="19.6" y="-1.7" width="23.3" height="11.2" rx="5.6" transform="rotate(24 27.8 0)"/><rect x="-27.8" y="-11.2" width="55.6" height="22.4" rx="8.5"/></g><g transform="translate(298.0 398.0) rotate(-27.7)" fill="#fff"><rect x="20.5" y="-1.7" width="24.4" height="11.2" rx="5.6" transform="rotate(24 29.0 0)"/><rect x="-29.0" y="-11.2" width="58.0" height="22.4" rx="8.5"/></g></g>
+<g transform="translate(256 256) scale(0.94) translate(-256 -256)">
+<circle cx="246" cy="268" r="196" fill="url(#disc)" filter="url(#soft)"/>
+<g clip-path="url(#circ)">
+  <!-- torso -->
+  <path d="M 132 520 C 132 424, 180 372, 242 370 C 306 370, 350 420, 354 520 Z" fill="#fffaf4" stroke="#2b1d5e" stroke-width="13" stroke-linejoin="round"/>
+  <g clip-path="url(#torsoc)">
+    <rect x="168" y="394" width="152" height="140" rx="36" fill="#9c80ee"/>
+    <g fill="none" stroke="#fffaf4" stroke-width="15" stroke-linecap="round">
+      <path d="M 244 404 L 244 520"/>
+      <path d="M 232 424 Q 205 418 190 436"/><path d="M 256 424 Q 283 418 298 436"/>
+      <path d="M 232 452 Q 203 446 186 466"/><path d="M 256 452 Q 285 446 302 466"/>
+      <path d="M 232 480 Q 203 474 186 494"/><path d="M 256 480 Q 285 474 302 494"/>
+    </g>
+  </g>
+  <!-- waving arm -->
+  <path d="M 318 412 C 346 384, 370 340, 382 296" fill="none" stroke="#2b1d5e" stroke-width="50" stroke-linecap="round"/>
+  <path d="M 318 412 C 346 384, 370 340, 382 296" fill="none" stroke="#fffaf4" stroke-width="26" stroke-linecap="round"/>
+</g>
+<!-- head -->
+<ellipse cx="236" cy="236" rx="126" ry="116" fill="#ece4fa"/>
+<g clip-path="url(#headc)"><ellipse cx="256" cy="226" rx="122" ry="114" fill="#fffaf4"/></g>
+<ellipse cx="236" cy="236" rx="126" ry="116" fill="none" stroke="#2b1d5e" stroke-width="13"/>
+<!-- cheeks -->
+<ellipse cx="184" cy="290" rx="20" ry="11" fill="#f4a3c4" opacity=".45"/>
+<ellipse cx="306" cy="280" rx="20" ry="11" fill="#f4a3c4" opacity=".45"/>
+<!-- happy closed eyes -->
+<g fill="none" stroke="#2b1d5e" stroke-width="14" stroke-linecap="round">
+  <path d="M 168 270 Q 190 238 212 268"/>
+  <path d="M 268 260 Q 290 228 312 258"/>
+</g>
+<!-- little smile -->
+<path d="M 232 296 Q 242 306 252 296" fill="none" stroke="#2b1d5e" stroke-width="9" stroke-linecap="round"/>
+<!-- open waving hand -->
+<g transform="translate(390 256) rotate(14) scale(1.15)">
+  <ellipse cx="-30" cy="6" rx="15" ry="10" transform="rotate(-35 -30 6)" fill="#fffaf4" stroke="#2b1d5e" stroke-width="11"/>
+  <rect x="-28" y="-40" width="56" height="70" rx="26" fill="#fffaf4" stroke="#2b1d5e" stroke-width="12"/>
+  <g stroke="#2b1d5e" stroke-width="7" stroke-linecap="round" opacity=".8"><path d="M -9 -38 L -9 -22"/><path d="M 9 -38 L 9 -22"/></g>
+</g>
+<!-- wave lines -->
+<g fill="none" stroke="#2b1d5e" stroke-width="11" stroke-linecap="round">
+  <path d="M 414 168 L 408 196"/><path d="M 448 186 L 428 208"/><path d="M 466 228 L 440 234"/>
+</g>
 </g></svg>
