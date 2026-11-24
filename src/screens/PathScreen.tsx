@@ -116,23 +116,13 @@ export function PathScreen({ start, openTab }: { start: (s: Session) => void; op
       )}
 
       {section ? null : cur ? (
-        <button className="continue-card press" style={{ ['--hue' as string]: cur.unit.hue }} onClick={() => launch(cur)}>
-          <div>
-            <div className="k">
-              {cur.unit.icon} {cur.unit.title}
-            </div>
-            <div className="t">{cur.kind === 'checkpoint' ? nodeLabel(cur) : `המשך: ${nodeLabel(cur)}`}</div>
-            <div className="k">
-              {cur.kind === 'intro'
-                ? 'כרטיסי הסבר · שאלות קצרות'
-                : cur.kind === 'lesson'
-                  ? cur.facts.length ? `${nodeSize(cur)} פריטים חדשים` : `${cur.terms.length} מילים חדשות`
-                  : `${itemsLabel(cur)} · עוברים ב־${PASS_SCORE * 100}%`}
-            </div>
-          </div>
-          <span className="go">
-            <IconChevron className="flip" width={22} height={22} strokeWidth={3} />
+        // a quiet one-line shortcut: open the lecture the student was last studying
+        <button className="continue-slim press" style={{ ['--hue' as string]: cur.unit.hue }} onClick={() => openLecture(cur.unit.id)}>
+          <span className="continue-slim-label">להמשיך:</span>
+          <span className="continue-slim-where">
+            <bdi>{cur.unit.title}</bdi> · {nodeLabel(cur)}
           </span>
+          <IconChevron className="flip" width={16} height={16} strokeWidth={2.6} />
         </button>
       ) : !course.lectures.length ? (
         <div className="card" style={{ padding: 20, textAlign: 'center' }}>
@@ -182,9 +172,20 @@ export function PathScreen({ start, openTab }: { start: (s: Session) => void; op
           const cProgress = c.id === course.id ? progress : pathProgress(state, cPath);
           return (
             <section key={c.id} aria-label={c.title}>
-              <h2 className="path-group">
-                {c.icon} {c.title}
-              </h2>
+              <div className="subject-head" style={{ ['--hue' as string]: c.hue }}>
+                <span className="subject-head-glyph" aria-hidden>
+                  {c.icon}
+                </span>
+                <div style={{ minWidth: 0 }}>
+                  <h2 className="subject-head-title">{c.title}</h2>
+                  <div className="subject-head-sub">{c.subtitle}</div>
+                </div>
+                <div className="subject-head-meta">
+                  <span className="num">{c.lectures.length}</span>
+                  <br />
+                  הרצאות
+                </div>
+              </div>
               <div className="lecture-grid">
                 {SECTIONS.filter((u) => u.courseId === c.id).map((u) => {
                   const items = [...u.terms, ...u.facts];
