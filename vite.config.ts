@@ -7,7 +7,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.png', 'apple-touch-icon.png', 'owl.png'],
+      includeAssets: ['favicon.png', 'apple-touch-icon.png', 'boar.png'],
       manifest: {
         name: 'אנטומיה חיפה',
         short_name: 'אנטומיה חיפה',

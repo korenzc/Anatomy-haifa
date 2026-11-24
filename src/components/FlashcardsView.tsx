@@ -407,7 +407,7 @@ function Summary({
             animate={reduce ? { opacity: 1 } : { opacity: 1, transform: 'scale(1)' }}
             transition={reduce ? { duration: 0.2 } : { type: 'spring', duration: 0.6, bounce: 0.45 }}
           >
-            {perfect ? <img src="/owl.png" alt="" width={72} height={96} /> : '💪'}
+            {perfect ? <img src="/boar.png" alt="" width={72} height={96} /> : '💪'}
           </motion.div>
           <div className="results-title">{perfect ? (round === 1 ? 'ידעתם הכול!' : 'עכשיו ידעתם הכול!') : `ידעתם ${known} מתוך ${total}`}</div>
           <p className="results-sub">
