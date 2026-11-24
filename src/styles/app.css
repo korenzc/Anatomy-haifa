@@ -3175,8 +3175,8 @@ p,
 /* ---------- path: lecture tiles (the grid) → one lecture's path ---------- */
 .lecture-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
   margin-bottom: 8px;
 }
 .lecture-tile {
@@ -3184,9 +3184,9 @@ p,
   flex-direction: column;
   align-items: flex-start;
   gap: 2px;
-  min-height: 148px;
-  padding: 14px;
-  border-radius: 18px;
+  min-height: 128px;
+  padding: 10px;
+  border-radius: 16px;
   text-align: start;
   color: inherit;
   background: color-mix(in oklch, oklch(0.7 0.14 var(--hue)) 11%, var(--grouped-bg-2));
@@ -3198,12 +3198,21 @@ p,
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
+}
+.lecture-tile .unit-glyph {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+.lecture-tile .unit-kicker {
+  font-size: var(--fs-caption2);
 }
 .lecture-tile-badge {
   font-size: var(--fs-caption2);
   font-weight: 700;
-  padding: 3px 8px;
+  padding: 2px 6px;
   border-radius: 999px;
   color: #fff;
   background: oklch(0.6 0.16 var(--hue));
@@ -3211,26 +3220,26 @@ p,
 .lecture-tile-badge.done {
   display: grid;
   place-items: center;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   padding: 0;
   background: var(--green);
 }
 .lecture-tile-title {
   font-weight: 700;
-  font-size: var(--fs-subhead);
-  line-height: 1.3;
+  font-size: var(--fs-footnote);
+  line-height: 1.25;
   overflow-wrap: anywhere;
 }
 .lecture-tile-bar {
   margin-top: auto;
-  padding-top: 10px;
+  padding-top: 8px;
   width: 100%;
 }
 .lecture-tile-bar::before,
 .lecture-tile-bar > span {
   display: block;
-  height: 5px;
+  height: 4px;
   border-radius: 999px;
 }
 .lecture-tile-bar {
@@ -3251,9 +3260,9 @@ p,
   transform-origin: left;
 }
 .lecture-tile-count {
-  font-size: var(--fs-caption1);
+  font-size: var(--fs-caption2);
   color: var(--label-2);
-  margin-top: 4px;
+  margin-top: 3px;
 }
 .lecture-back {
   display: inline-flex;

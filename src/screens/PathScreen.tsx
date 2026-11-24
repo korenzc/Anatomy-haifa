@@ -219,7 +219,7 @@ export function PathScreen({ start, openTab }: { start: (s: Session) => void; op
                       </span>
                       {finished ? (
                         <span className="lecture-tile-badge done" aria-hidden>
-                          <IconCheck width={14} height={14} strokeWidth={3} />
+                          <IconCheck width={12} height={12} strokeWidth={3} />
                         </span>
                       ) : isCur ? (
                         <span className="lecture-tile-badge">עכשיו</span>
